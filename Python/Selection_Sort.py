@@ -20,7 +20,5 @@ def selectionSort(arr):
                 minIndex = j
         
         # swap chosen value with value at the front of the unsorted list
-        minVal = arr[minIndex]        
-        arr[minIndex] = arr[i]
-        arr[i] = minVal
+        arr[i], arr[minIndex] = arr[minIndex], arr[i]
     return arr
