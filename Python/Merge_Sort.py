@@ -32,24 +32,29 @@ def merge(arrA, arrB):
     the first array must be greater than or equal to the length of 
     the second.
     """
+    # initialize index counters and output array    
     iA = 0
     iB = 0
     arrSorted = []
+    
     while True:
+        
+        # after one array is expended, append remaining array to the
+        # end of the output array        
         if iA == len(arrA):
             arrSorted += arrB[iB:]
             break
         elif iB == len(arrB):
             arrSorted += arrA[iA:]
             break
+        
+        # compare first element of each array, add smaller element to
+        # the end of the output array        
         elif arrA[iA] <= arrB[iB]:
             arrSorted.append(arrA[iA])
             iA += 1
         else:
             arrSorted.append(arrB[iB])
             iB += 1
+    
     return arrSorted
-
-hey = [324, 23, 234, 2, 65, 8,4, 12, 53]
-print(mergeSort(hey))
-            
