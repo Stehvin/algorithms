@@ -5,15 +5,27 @@ Created on Wed Sep 20 19:27:28 2017
 @author: Stehvin
 """
 
-def mergeSort(arr, low, high):
+def mergeSort(arr):
     """Sorts an "array" (list) by breaking it apart into single elements,
     then merging those elements (in ascending order) into progressively
     larger arrays.
     """
-    mid = (low + high)//2
-    mergeSort(arr, low, mid)
-    mergeSort(arr, mid + 1, high)
-    merge(arr[low:mid], arr[mid + 1:high])
+    return recursiveDivide(arr, 0, len(arr) - 1)
+    
+def recursiveDivide(arr, low, high):
+    """Recursively divides array until it becomes only two elements,
+    then merges these two elements.
+    """
+    # base case, array only has one element
+    if low == high:
+        return arr[low:low+1]
+        
+    # recursive case, array has multiple elements
+    else:
+        mid = (low + high)//2
+        left = recursiveDivide(arr, low, mid)
+        right = recursiveDivide(arr, mid + 1, high)
+        return merge(left, right)
 
 def merge(arrA, arrB):
     """Merges two sorted arrays in ascending order. The length of 
@@ -39,5 +51,5 @@ def merge(arrA, arrB):
     return arrSorted
 
 hey = [324, 23, 234, 2, 65, 8,4, 12, 53]
-mergeSort(hey)
+print(mergeSort(hey))
             
