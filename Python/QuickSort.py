@@ -12,9 +12,9 @@ def quickSort(arr):
     process internally. This continues recursively until each array is
     only one element long, then they are recombined.
     """
-    return recursion(arr, 0, len(arr) - 1)
+    return recursiveDivide(arr, 0, len(arr) - 1)
 
-def recursion(arr, low, high):
+def recursiveDivide(arr, low, high):
     """Recursively partition array until an individual partition 
     becomes an empty array.
     """
@@ -25,8 +25,8 @@ def recursion(arr, low, high):
     # recursive case, array has multiple elements
     # partition array, then partition left and right sides
     wall = partition(arr, low, high)
-    recursion(arr, low, wall - 1)
-    recursion(arr, wall + 1, high)
+    recursiveDivide(arr, low, wall - 1)
+    recursiveDivide(arr, wall + 1, high)
     
 def partition(arr, low, high):
     """Modifies array to have elements smaller than the pivot on the
@@ -48,9 +48,4 @@ def partition(arr, low, high):
     # place the pivot in its proper position    
     wall += 1
     arr[high], arr[wall] = arr[wall], arr[high]
-    return wall
-
-# testing
-listA = [4, 5, 23, 78, 12, 657, 12, 4, 74, 12]
-quickSort(listA)
-print(listA)
+    return walls
