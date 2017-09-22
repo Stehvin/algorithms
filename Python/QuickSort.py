@@ -14,25 +14,38 @@ def quickSort(arr):
     """
     return recursion(arr, 0, len(arr) - 1)
 
-def recursion(arr, low, high): 
+def recursion(arr, low, high):
+    """Recursively partition array until an individual partition 
+    becomes an empty array.
+    """
     # base case, array is empty
     if low >= high:
         return []
     
     # recursive case, array has multiple elements
+    # partition array, then partition left and right sides
     wall = partition(arr, low, high)
     recursion(arr, low, wall - 1)
     recursion(arr, wall + 1, high)
     
 def partition(arr, low, high):
+    """Modifies array to have elements smaller than the pivot on the
+    left side and elements bigger than the pivot on the right side.
+    Then, returns the pivot's index.
+    """
+    # set pivot and initialize wall position to the left of the 
+    # lowest index
     pivot = arr[high]
     wall = low - 1
     
+    # place elements smaller than the pivot
+    # to the left side of the wall
     for i in range(low, high):
         if arr[i] <= pivot:
             wall += 1
             arr[i], arr[wall] = arr[wall], arr[i]
     
+    # place the pivot in its proper position    
     wall += 1
     arr[high], arr[wall] = arr[wall], arr[high]
     return wall
