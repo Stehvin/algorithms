@@ -17,13 +17,19 @@ int main()
 	return 0;
 }
 
-// sorts array using the bubble sort algorithm
+// sort array using the bubble sort algorithm
 void bubbleSort(int *arr, int n)
 {
 	int i, j, temp;
 
+	// loop through array, sorting at least one element each iteration;
+	// last iteration sorts the final two elements (if they aren't
+	// already sorted)
 	for (i = 0; i < n - 1; i++)
 	{
+		
+		// compare adjacent elements, swapping them if the left element
+		// is larger than the right element
 		for (j = i; j < n - i - 1; j++)
 		{
 			if (arr[j] > arr[j + 1])
