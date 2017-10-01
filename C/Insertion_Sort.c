@@ -1,7 +1,7 @@
 #include <stdio.h>  
 
-void printArr(int *arr);
-void insertionSort(int *arr);
+void printArr(int *arr, int n);
+void insertionSort(int *arr, int n);
 
 int main()  
 {  
@@ -9,9 +9,9 @@ int main()
 	int arr[] = {43, 2, 56, 45, 3, 3, 67, 32, 2, 68};
 	int n = sizeof(arr) / sizeof(int);
 
-	printArr(&arr);
-	insertionSort(arr);
-	printArr(&arr);
+	printArr(arr, n);
+	insertionSort(arr, n);
+	printArr(arr, n);
     return 0;  
 }
 
@@ -32,7 +32,6 @@ void insertionSort(int *arr, int n)
 			if (arr[j] > cur)
 			{
 				arr[j + 1] = arr[j];
-				printf("%d\n", cur);
 			}
 			else
 			{
@@ -43,9 +42,9 @@ void insertionSort(int *arr, int n)
 	}
 }
 
-void printArr(int *arr)
+void printArr(int *arr, int n)
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < n; i++)
 	{
 		printf("%d ", arr[i]);
 	}
