@@ -45,8 +45,9 @@ namespace Sort
             int iL = 0;
             int iR = 0;
 
-            // compare first elements of each array, placing the smaller
-            // element into the next position in the main array
+            // Compare first elements of each array, placing the smaller
+            // element into the next position in the main array. Loop stops
+            // when one array is empty.
             while (iL < left.Length && iR < right.Length)
             {
                 if (left[iL] <= right[iR])
@@ -62,7 +63,8 @@ namespace Sort
                 iArr++;
             }
 
-            // place all elements from remaining array into main array
+            // place all elements from remaining (non-empty) array into
+            // main array
             if (iR == right.Length)
             {
                 for (int i = iL; i < left.Length; i++)
