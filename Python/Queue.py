@@ -6,6 +6,7 @@ Created on Thu Oct 19 19:33:49 2017
 """
 
 class Node:
+    """Node objects can hold a value and a 'pointer' to another node."""
     def __init__(self, value=None):
         self.value = value
         self.nextNode = None
@@ -14,14 +15,22 @@ class Node:
         return str(self.value)
 
 class Queue:
+    """Queue object adds new nodes to the end of the list, and removes nodes
+       from the front of the list.
+    """
     def __init__(self):
         self.first = None
         self.last = None
 
     def enqueue(self, value):
+        
+        # add node to currently empty queue
         if self.last == None:
             self.last = Node(value)
             self.first = self.last
+        
+        # add node to non-empty queue
+        # link the second-to-last node to the last node
         else:
             secondLast = self.last
             self.last = Node(value)
