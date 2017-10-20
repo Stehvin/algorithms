@@ -21,7 +21,7 @@ class Stack:
     def __init__(self):
         self.top = None
         
-    def insert(self, value):
+    def push(self, value):
         
         # initialize first node in empty stack
         if self.top == None:
@@ -56,9 +56,9 @@ class Stack:
     
 
 A = Stack()
-A.insert(3)
-A.insert(4)
-A.insert(45)
+A.push(3)
+A.push(4)
+A.push(45)
 print(A)
 B = A.pop()
 print(A)
