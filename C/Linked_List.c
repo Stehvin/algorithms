@@ -32,15 +32,19 @@ void printLL(Node *head)
 	
 	// Check if list is empty
 	if (cur == NULL)
-		printf("LL()\n");
-	else
-		printf("LL(%d", cur->value);
+	{
+		printf("LL(");
+	}
 
 	// Print each node's value until the end of the list is reached.
-	while (cur->next != NULL)
+	else
 	{
-		printf(", %d", cur->next->value);
-		cur = cur->next;
+		printf("LL(%d", cur->value);
+		while (cur->next != NULL)
+		{
+			printf(", %d", cur->next->value);
+			cur = cur->next;
+		}
 	}
 
 	// End of linked list
@@ -50,6 +54,7 @@ void printLL(Node *head)
 int main()
 {
 	// Initialize linked list head node
+	printLL(NULL);
 	Node *head = malloc(sizeof(Node));
 	head->next = NULL;
 	head->value = 34;
