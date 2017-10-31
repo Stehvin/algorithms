@@ -2,6 +2,7 @@ using System;
 
 namespace Structure
 {
+    // Nodes contain a value and reference to the next node.
     class Node
     {
         public int value;
@@ -13,16 +14,21 @@ namespace Structure
         }
     }
 
+    // Implement a stack (FIFO) structure.
     class Stack
     {
         public Node head;
 
+        // Insert a new node on the top of the stack.
         public void push(int val)
         {
+            // Check for empty stack
             if (head == null)
             {
                 head = new Node(val);
             }
+
+            // Add new node and have it reference the old head node
             else
             {
                 Node prvHead = head;
@@ -31,6 +37,7 @@ namespace Structure
             }
         }
 
+        // Remove a node from the top of the stack. Return its value.
         public int pop()
         {
             if (head != null)
@@ -39,15 +46,21 @@ namespace Structure
                 head = head.next;
                 return returnVal;
             }
-            return -1;
+
+            // Throw exception if stack is empty.
+            throw new InvalidOperationException("Empty Stack");
         }
 
+        // Print the stack in a readable format.
         public void prtStack()
         {
+            // Check for empty stack
             if (head == null)
             {
                 Console.WriteLine("Stack()");
             }
+
+            // Print each node of stack.
             else
             {
                 Node cur = head;
